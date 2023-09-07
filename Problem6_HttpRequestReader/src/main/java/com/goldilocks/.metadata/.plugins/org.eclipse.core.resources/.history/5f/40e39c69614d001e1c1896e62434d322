@@ -1,0 +1,52 @@
+package com.goldilocks;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.*;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class EmployeeDaoImpl implements EmployeeDao{
+
+	 private final DataSource dataSource;
+	 
+	 
+	 @Autowired
+	 public EmployeeDaoImpl(DataSource dataSource) {
+	        this.dataSource = dataSource;
+	    }
+	
+	@Override
+	public List<Employee> getAllEmployees() {
+
+		 List<Employee> users = new ArrayList<>();
+
+	        try{
+	        	
+	        	 Connection connection = dataSource.getConnection();
+	             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM employees");
+	             ResultSet resultSet = preparedStatement.executeQuery();
+
+	            while (resultSet.next()) {
+	                User user = new User();
+	                user.setId(resultSet.getLong("id"));
+	                user.setUsername(resultSet.getString("username"));
+	                user.setEmail(resultSet.getString("email"));
+	                users.add(user);
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	            // Handle exceptions appropriately
+	        }
+
+	        return users;
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,39 @@
+package com.goldilocks;
+
+import java.sql.Connection;
+import java.util.*;
+
+public class EmployeeDao {
+
+	  public List<Employee> getDataFromDatabase() {
+	    	Connection con=null;
+			String url="jdbc:mysql://localhost/test";
+			String user="root";
+			String pass="root";
+			List<Employee> data=new ArrayList<>();
+			try {
+				
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				con=DriverManager.getConnection(url,user,pass);
+				String query="Select employeeName,employeeAge from test";
+				PreparedStatement statement=con.prepareStatement(query);
+				ResultSet result=statement.executeQuery();
+				
+				while (result.next()) {
+		                String empName = result.getString("employeeName");
+		                String empAge = result.getString("employeeAge");
+//		                System.out.println("emp->  "+empName+"    "+"empAge -->   "+empAge);
+		                data.add(new Employee(empName, Integer.parseInt(empAge)));
+		            }
+				
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return data;
+	    }
+	
+}

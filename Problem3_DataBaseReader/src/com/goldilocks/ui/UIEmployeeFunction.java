@@ -1,0 +1,57 @@
+package com.goldilocks.ui;
+
+import java.util.List;
+import java.util.Scanner;
+import com.goldilocks.dto.Employee;
+import com.goldilocks.exception.EmployeeException;
+import com.goldilocks.dao.EmpDao;
+import com.goldilocks.dao.EmpDaoImpl;
+
+
+public class UIEmployeeFunction {
+	
+	private EmpDao empDao;
+	
+	public UIEmployeeFunction() {
+		empDao = new EmpDaoImpl();
+	}
+	
+	
+	public void registerEmployee(Scanner sr) {
+		Employee employee = new Employee();
+		System.out.print("Enter the employee details \n Enter empId: ");
+		employee.setEmpId(sr.nextInt());
+		System.out.print("Enter empName : ");
+		employee.setEmpName(sr.next());
+		System.out.print("Enter empAge : ");
+		employee.setEmpAge(sr.nextInt());
+		
+		String str = empDao.registerEmployee(employee);
+		
+		System.out.println(str);
+		
+	}
+	
+	public void getEmployeeById(Scanner sr){
+		
+		System.out.print("Enter empId to get particuler employee : ");
+		int empId = sr.nextInt();
+		try {
+			Employee emp = empDao.getEmployeeById(empId);
+			System.out.println(emp);
+		}catch(EmployeeException ex) {
+			System.out.println(ex.getMessage());
+		}
+		
+	}
+	
+	public void getAllEmployee() {
+		System.out.println("Get All Employees from Record");
+		List<Employee> list = empDao.getAllEmployee();
+		
+		list.forEach(e -> System.out.println(e));
+		
+	}
+	
+	
+}

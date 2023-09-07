@@ -1,0 +1,43 @@
+package com.goldilocks.ui;
+
+import java.util.Scanner;
+
+public class EmployeeUI {
+
+	public static void main(String args[]) {
+		Scanner sr = new Scanner(System.in);
+
+		int choice = 0;
+
+		do {
+
+			System.out.println("1. Add Employee");
+			System.out.println("3. View Employees");
+			System.out.println("0. Exit");
+
+			System.out.print("Enter Your Selection : ");
+			choice = sr.next();
+
+			switch (choice) {
+			case 1:
+				addEmployee(sr);
+				break;
+			case 3:
+				viewEmployee();
+				break;
+
+			case 0:
+				System.out.println("Thank you for using our application");
+				break;
+
+			}
+
+		} while (choice != 0);
+
+		sc.close();
+		
+		
+	}
+	
+	
+}

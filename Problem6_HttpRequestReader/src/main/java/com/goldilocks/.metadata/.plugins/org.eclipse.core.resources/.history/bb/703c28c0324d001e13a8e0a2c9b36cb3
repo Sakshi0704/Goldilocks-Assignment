@@ -1,0 +1,5 @@
+package com.goldilocks.dao;
+
+public class EmployeeDao {
+
+}

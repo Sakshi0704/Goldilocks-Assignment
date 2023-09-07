@@ -1,0 +1,19 @@
+package com.goldilocks;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import com.goldilock.Employee;
+import com.goldilocks.RequestMapping;
+import com.goldilocks.ResponseEntity;
+
+@RestController // @Controller + @ResponseBody
+public class HelperController {
+	
+	@RequestMapping(value = "/employees", method = RequestMethod.GET)
+	public ResponseEntity<Employee> getEmployeesHandler(){
+		
+		return new ResponseEntity<>(employee, HttpStatus.OK);
+	}
+	
+}

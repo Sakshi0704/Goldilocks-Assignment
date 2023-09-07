@@ -1,0 +1,45 @@
+package com.goldilocks;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+
+public class CSV_Reader {
+
+	public static void main(String args[]) {
+		String inputFile = "input.csv";
+		String outputFile = "output.csv";
+		
+		try {
+			 BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+			 BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
+			 System.out.println("Sakshi1");
+			String line;
+			double sum = 0.0;
+			System.out.println("Sakshi2");
+			while((line = reader.readLine()) != null) {
+				System.out.println("Sakshi3");
+				String[] nums = line.split(",");
+				System.out.println(nums);
+				int length = nums.length;
+				int index=0;
+				while(index<=length) {
+					Integer num1 = Integer.parseInt(nums[index]);
+					sum+=num1;
+				}
+				System.out.println("Sakshi4");
+				writer.write(line + "," + sum);
+				writer.newLine();
+			}
+			
+			reader.close();
+			writer.close();
+			
+		}catch(Exception ex) {
+			System.out.println("Sakshi5");
+			System.out.println(ex.getStackTrace());
+		}
+	}
+	
+}

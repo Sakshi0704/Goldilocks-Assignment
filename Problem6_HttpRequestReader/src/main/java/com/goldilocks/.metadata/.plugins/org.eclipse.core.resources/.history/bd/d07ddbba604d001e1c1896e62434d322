@@ -1,0 +1,27 @@
+package com.goldilocks;
+
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class EmployeeDaoImpl implements EmployeeDao{
+
+	
+	 private final DataSource dataSource;
+	 
+	 @Autowired
+	 public EmployeeDaoImpl(DataSource dataSource) {
+	        this.dataSource = dataSource;
+	    }
+	
+	@Override
+	public List<Employee> getAllEmployees() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

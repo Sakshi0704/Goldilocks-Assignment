@@ -1,0 +1,5 @@
+package com.goldilocks.controller;
+
+public class HelperController {
+
+}
