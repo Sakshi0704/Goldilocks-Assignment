@@ -8,14 +8,14 @@ public class InputAndOutput {
 		Scanner sr=new Scanner(System.in);
 		
 	
-		System.out.println("If You Wants to exists this problem please write exists");
+		System.out.println("If You Wants to exists this problem please write cancel");
 		
-		System.out.print("Enter your skills : ");
+		System.out.print("Give your input to Print : ");
 		String input = sr.nextLine();
 		do{
 			System.out.println(input);
 			input = sr.nextLine();
-		}while(!(input.toUpperCase().equals("EXISTS")));
+		}while(!(input.toUpperCase().equals("CANCEL")));
 		
 		System.out.println("Program is close successfully");
 	}
