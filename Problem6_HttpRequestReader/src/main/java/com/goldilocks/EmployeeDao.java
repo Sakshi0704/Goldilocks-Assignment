@@ -9,4 +9,5 @@ public interface EmployeeDao{
 
 	public List<Employee> getAllEmployees();
 	
+	public Employee getEmployeeByName(String name);
 }

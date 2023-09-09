@@ -46,4 +46,35 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		return emps;
 	}
 
+	@Override
+	public Employee getEmployeeByName(String name) {
+		// TODO Auto-generated method stub
+		try{
+        	
+       	 Connection connection = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM employee where empName = ?");
+          
+            
+            preparedStatement.setString(1, name);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            
+            Employee emp = new Employee();
+            
+           while (resultSet.next()) {
+               emp.setEmpId(resultSet.getInt(1));
+               emp.setEmpName(resultSet.getString(2));
+               emp.setEmpAge(resultSet.getInt(3));
+           }
+           
+           return emp;
+           
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }
+		
+		return null;
+	}
+
 }
