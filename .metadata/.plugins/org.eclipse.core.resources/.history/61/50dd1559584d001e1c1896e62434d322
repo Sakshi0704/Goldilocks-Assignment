@@ -1,5 +1,0 @@
-package com.goldilocks.repository;
-
-public interface EmployeeDao {
-	public Employee getAllEmployee() throws EmployeeException;
-}

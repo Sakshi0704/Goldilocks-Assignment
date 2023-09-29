@@ -2,3 +2,4 @@
 Problem :- Query to find the age is less than 30 and name start with S
 
 Solution :- SELECT * FROM students where age<30 AND firstName LIKE 's%';
+

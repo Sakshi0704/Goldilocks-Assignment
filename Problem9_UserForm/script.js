@@ -27,6 +27,7 @@ function userDetails(){
         if(k==inputObj.username){
             if(obj[k]==inputObj.password){
                 document.getElementById("login-message").textContent = "Login successful!";
+                alert("Login Successfull")
                 flag=false;
             }else{
                 document.getElementById("login-message").textContent = "Login Failed!";
@@ -36,6 +37,4 @@ function userDetails(){
     if(flag){
         alert("Wrong username or password")
     }
-    
-
 }

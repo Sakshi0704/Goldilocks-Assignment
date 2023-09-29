@@ -1,5 +1,0 @@
-package com.goldilocks.repository;
-
-public class EmployeeDao {
-
-}

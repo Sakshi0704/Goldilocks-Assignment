@@ -20,8 +20,8 @@ public class MapStorer {
 		System.out.println("Select your choice from below");
 		System.out.println("0. To Exit from Application");
 		System.out.println("1. To Add New Student To The Map Record");
-		System.out.println("2. To Get Age Of A Perticuler Student Using Student Name");
-		System.out.println("3. To Show All Map Record");
+		System.out.println("2. To Show All Map Record");
+		System.out.println("3. To Get Age Of A Perticuler Student Using Student Name");
 	}
 	
 	public static void main(String args[]) {
@@ -35,15 +35,16 @@ public class MapStorer {
 			choice = sr.next();
 			switch(choice) {
 				case "1": 
-					System.out.print("Enter The Student Name");
+					sr.nextLine();
+					System.out.print("Enter The Student Name : ");
 					String name=sr.nextLine();
-					System.out.print("Enter the the age of the Student should be between 12-40");
+					System.out.print("Enter the the age of the Student should be between 12-40 : ");
 					String age=sr.next();
 					sr.nextLine();
 					while(!isNumberic(age)||Integer.parseInt(age)>50||Integer.parseInt(age)<10) {
 						System.out.println("Please Provide valid age , "
 								+ "age should between 10 to 50 only and "
-								+ "check the format as well");
+								+ "check the format as well \n");
 						age=sr.next();
 						sr.nextLine();
 					}
@@ -60,10 +61,13 @@ public class MapStorer {
 							System.out.println(index+"\t\t"+map.getKey()+"\t\t"+map.getValue());
 							index++;
 						}
+						
 					 }
+					System.out.println();
 				   break;
 				   
 				case "3" :
+					sr.nextLine();
 					System.out.print("Enter the name of the student to get the age : ");
 					String studentName = sr.nextLine();
 					if(students.containsKey(studentName)) {
@@ -72,14 +76,14 @@ public class MapStorer {
 					}else {
 						System.out.println("Student not found");
 					}
-					
+					System.out.println();
 					break;
 					
 				case "0" :
-					   System.out.println("Thank you for visiting");
+					   System.out.println("Thank you for visiting \n");
 						break;
 						
-				default: System.out.println("Please enter the vaild choice");
+				default: System.out.println("Please enter the vaild choice \n");
 						break;
 					
 			}

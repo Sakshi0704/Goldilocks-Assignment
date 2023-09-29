@@ -19,7 +19,6 @@ public class EmpDaoImpl implements EmpDao {
 			sb.append("please provide the proper object");
 		}
 		
-		// DML --> insert / delete / update
 		Connection conn = null;
 		
 		try {

@@ -24,11 +24,6 @@ body {
     margin-left: 35%;
 }
 
-
-#login-form label{
- 
-}
-
 #login-form input[type="text"],
 #login-form input[type="password"] {
     width: 100%;

@@ -18,7 +18,7 @@ public class HelperController {
 	private EmployeeDao empDao;
 	
 	
-	//http://localhost:8088/employees
+	//http://localhost:8088/employees  
 	@RequestMapping(value = "/employees", method = RequestMethod.GET)
 	public ResponseEntity<List<Employee>> getEmployeesHandler(){
 		

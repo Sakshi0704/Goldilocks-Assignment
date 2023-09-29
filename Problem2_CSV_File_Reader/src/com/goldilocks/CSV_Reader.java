@@ -36,9 +36,11 @@ public class CSV_Reader {
 
             System.out.println("Output written to " + outputFile + "successfully");
 			
-		}catch(IOException ex) {
-			System.out.println("Sakshi5");
+		}catch(Exception ex) {
+			//System.out.println("Sakshi5");
+			System.out.println(ex);
 			System.out.println(ex.getMessage());
+			
 		}
 	}
 	
